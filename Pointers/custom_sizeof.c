@@ -11,10 +11,10 @@ which will be the object size.
 int main()
 {
     int a;
-	// double a;
+    // double a;
 	
-	// %zu indicates type size_t and unsigned decimal value. 
-	// size_t is type-safe and works in both 32-bit or 64-bit platforms.
+    // %zu indicates type size_t and unsigned decimal value. 
+    // size_t is type-safe and works in both 32-bit or 64-bit platforms.
     printf("Size of a is %zu\n", custom_sizeof_ptr(&a));
     return 0;
 }
