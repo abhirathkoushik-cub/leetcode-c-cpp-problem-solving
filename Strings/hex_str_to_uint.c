@@ -26,19 +26,18 @@ uint32_t hexstr_to_uint(const char *str)
     uint32_t final_num=0;
     while(*temp_str != '\0')
     {
-        int num = 0;
         char temp_ch=tolower(*temp_str); // Converting all to lowercase to make sure case does not matter
         if ((int)temp_ch >=48 && (int)temp_ch <=57) // Checking if character is a digit between 0(ASCII 48) and 9(ASCII 57)
         {
-            num = temp_ch - '0'; // -'0' is standard ASCII way of converting from String Int to Int
+            // In the answer variable, we shift by 4 bits (next digit in hex number) and then set the required bits
+            final_num = (final_num << 4) | (temp_ch - '0'); // -'0' is standard ASCII way of converting from String Int to Int
         }
         else if ((int)temp_ch >=97 && (int)temp_ch <=102) // Checking if character is a character between a(ASCII 97) and f(ASCII 102)
         {
-            num = temp_ch - 'a' + 10; // Subtracts 97 and then adds 10 to get the respective decimal for the hex character
+            final_num = (final_num << 4) | (temp_ch - 'a' + 10); // Subtracts 97 and then adds 10 to get the respective decimal for the hex character
         }
         else
             return ERROR;
-        final_num = (final_num << 4) | num; // In the answer variable, we shift by 4 bits (next digit in hex number) and then set the num value
         char_count++;
         temp_str++;
     }
