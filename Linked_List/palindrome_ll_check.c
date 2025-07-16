@@ -1,4 +1,6 @@
 /*
+Leetcode: https://leetcode.com/problems/palindrome-linked-list/
+
  * Definition for singly-linked list.
  * struct ListNode {
  *     int val;
@@ -35,6 +37,12 @@ bool palindrome_check(struct ListNode* head)
     // Check Palindrome
     struct ListNode* left_node = head;
     struct ListNode* right_node = prev_node; // prev_node points to the start of the reversed list
+    
+    /* 
+       Here, we cannot use while(left_node != right_node) as pointers do not meet. Both left and right pointers only move RIGHT in the list.
+       while(left_node != NULL) will access even the reversed part of the list as it starts from Head to the end of list.
+       while(right_node != NULL) correctly compares the nodes in the reversed second half with first half for palindrome check.
+    */
     while(right_node != NULL){
         if (left_node->val != right_node->val){
             return false;
