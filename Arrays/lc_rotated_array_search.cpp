@@ -17,7 +17,7 @@ public:
         while (left <= right)
         {
             // Find Middle Value
-            int mid = (left + right) / 2;
+            int mid = left + (right - left) / 2; // Safer than (left+right)/2 as cannot overflow with higher values
 
             // Check if middle value is the target
             if (nums[mid] == target)
