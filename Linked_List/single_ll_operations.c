@@ -131,6 +131,26 @@ void dequeue_middle(struct ListNode** head_ref, int tar_num)
     }
 }
 
+// reverse a linked list, has to return pointer for new head 
+struct ListNode* reverse_ll (struct ListNode* ptr)
+{
+    struct ListNode* prev = NULL;
+    struct ListNode* next = NULL;
+    struct ListNode* curr = ptr;
+    
+    while(curr != NULL)
+    {
+        next = curr->next; // save next node data
+        curr->next = prev; // reverse order
+        
+        // advance pointers
+        prev = curr;
+        curr = next;
+    }
+    
+    return prev; // Prev is the new head of the list now, not curr 
+}
+
 int main()
 {
     struct ListNode *head_node = create_node(10);
@@ -152,6 +172,11 @@ int main()
     
     dequeue_middle(&head_node, 20);
     display_ll(head_node);
+
+    ll_enqueue(head_node, 90);
+    ll_enqueue(head_node, 100);
+    struct ListNode* reversed_list = reverse_ll(head_node);
+    display_ll(reversed_list);
     
     return 0;
 }
