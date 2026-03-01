@@ -26,7 +26,7 @@ void compressString(std::string str)
 
 int main() 
 { 
-    std::string temp = "AAA";
+    std::string temp = "AAABBCDDDD";
     compressString(temp);
     return 0;
 }
