@@ -13,17 +13,20 @@ Implement a solution that will execute funcx() where “x” is the value of ano
 
 uint8_t func0(uint8_t input_arg)
 {
-    printf("%d from 0", input_arg);
+    printf("%hhu from 0\n", input_arg);
+    return input_arg;
 }
 
 uint8_t func1(uint8_t input_arg)
 {
-    printf("%d from 1", input_arg);
+    printf("%hhu from 1\n", input_arg);
+    return input_arg;
 }
 
 uint8_t func2(uint8_t input_arg)
 {
-    printf("%d from 2", input_arg);
+    printf("%hhu from 2\n", input_arg);
+    return input_arg;
 }
 
 int main()
@@ -32,7 +35,10 @@ int main()
 
     uint8_t (*func_arr[])(uint8_t) = {func0, func1, func2}; // Declaring an Array of Function Pointers
 
-    func_arr[x](temp); // Calling the function to be executed through index of the Array of Function Pointers
+    if (x >= 0 && x < 3) {  // Bounds checking
+        uint8_t result = func_arr[x](temp); // Calling the function to be executed through index of the Array of Function Pointers
+        printf("Result: %hhu\n", result);
+    }
 
     return 0;
 }
