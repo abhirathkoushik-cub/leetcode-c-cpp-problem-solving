@@ -175,6 +175,7 @@ int main()
 
     ll_enqueue(head_node, 90);
     ll_enqueue(head_node, 100);
+    display_ll(head_node);
     struct ListNode* reversed_list = reverse_ll(head_node);
     display_ll(reversed_list);
     
