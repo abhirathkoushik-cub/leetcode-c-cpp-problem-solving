@@ -1,3 +1,4 @@
+// This question is for Reverse BYTES, not BITS.
 // Tested on C++ 23 Compiler
 
 #include <iostream>
@@ -60,6 +61,6 @@ int main()
     cout << "Generic swapped 16-bit:  0x" << hex << num16 << endl;
 
     // Generic method does not work for 8-bit data as it is a single byte
-    
+
     return 0;
 }

@@ -1,4 +1,5 @@
 /*
+This question is for Reverse BITS, not BYTES.
 Leetcode: https://leetcode.com/problems/reverse-bits/
 */
 
