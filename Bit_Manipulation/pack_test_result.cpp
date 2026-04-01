@@ -2,6 +2,12 @@
 #include<cstdint>
 #include<bitset>
 
+/*
+We have 8 bits to store the result of a test. We need to pack the following information into these 8 bits:
+1. Error Category (3 bits): This can represent up to 8 different error categories (0-7).
+2. Test ID (4 bits): This can represent up to 16 different test IDs (0-15).
+3. Pass/Fail Status (1 bit): This can represent whether the test passed (1) or failed (0).  
+*/
 uint8_t packTestResult(uint8_t errorCat, uint8_t testId, bool isPass)
 {
     uint8_t result = 0;
